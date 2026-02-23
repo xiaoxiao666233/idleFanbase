@@ -1,0 +1,448 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    /* light gray */
+    border-bottom: 3px solid #ccc;
+    /* thicker, darker line for emphasis */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+.logo {
+    height: 60px;
+    /* bigger logo */
+}
+
+/* nav-center on right */
+.nav-center {
+    display: flex;
+    gap: 30px;
+    /* space between buttons */
+    margin-right: 20px;
+    /* move buttons slightly left from screen edge */
+}
+
+/* === Navbar Buttons (All Types) === */
+.nav-btn,
+.nav-btn-custom,
+.custom-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    /* fixed height */
+    padding: 0 15px;
+    /* horizontal padding */
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black !important;
+    /* force border on all buttons */
+    border-radius: 8px;
+    background: none !important;
+    /* remove any Bootstrap background */
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect: Chic purple background + white text */
+.nav-btn:hover,
+.nav-btn-custom:hover,
+.custom-dropdown:hover {
+    background-color: #7b2cbf !important;
+    /* chic purple */
+    color: white !important;
+    /* text turns white */
+    border: 1px solid #7b2cbf !important;
+    /* border matches hover color */
+    text-decoration: none;
+}
+
+/* Remove focus outline */
+.nav-btn:focus,
+.nav-btn-custom:focus,
+.custom-dropdown:focus {
+    outline: none;
+}
+
+/* Dropdown item hover style */
+.dropdown-item:hover {
+    background-color: #f3e8ff;
+    /* light purple highlight */
+    color: #7b2cbf;
+    /* chic purple text */
+}
+
+
+
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px 40px 60px 40px;
+    /* top padding increased to push section down */
+    gap: 40px;
+    /* space between text and carousel */
+}
+
+/* Left text */
+.hero-text {
+    width: 40%;
+}
+
+/* H1 hover effect */
+.hero-text h1 {
+    transition: 0.3s;
+}
+
+.hero-text h1:hover {
+    color: #ff073a;
+    /* neon red */
+    text-shadow: 0 0 1px #ff073a, 0 0 3px #ff073a;
+    /* optional glowing effect */
+    cursor: pointer;
+}
+
+/* Right carousel */
+.carousel {
+    width: 55%;
+}
+
+/* Carousel images */
+.carousel img {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+
+/* Members Section */
+.members {
+    padding: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* very light black border around section */
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+/* Section title */
+.members h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Each member item */
+.member-item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    /* space between photo and text */
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    /* gray border for each member */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+/* Hover effect on member item */
+.member-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Member image */
+.member-item img {
+    width: 150px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.member-item img:hover {
+    transform: scale(1.05);
+}
+
+/* Vertical line between photo & text */
+.member-text {
+    padding-left: 20px;
+    /* distance from the line */
+    position: relative;
+}
+
+.member-text::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    /* line position relative to text */
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #d1d1d1;
+    /* subtle gray vertical line */
+}
+
+/* Member name & description links */
+.member-text a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.member-text a h3 {
+    margin: 0 0 5px 0;
+}
+
+.member-text a p {
+    margin: 0;
+}
+
+/* Hover effect on text */
+.member-text a:hover {
+    color: #7b2cbf;
+    /* chic purple */
+}
+
+.members h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    transition: 0.3s;
+}
+
+.members h2:hover {
+    color: #ff073a;
+    /* neon red */
+    text-shadow: 0 0 1px #ff073a, 0 0 3px #ff073a;
+    /* glow effect like h1 */
+    cursor: pointer;
+    /* optional: shows pointer on hover */
+}
+
+/* Initial state: invisible and slightly moved down */
+.members,
+.member-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+/* Active state: visible and in place */
+.members.show,
+.member-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Footer */
+.footer {
+    margin-top: 60px;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    background-color: white;
+    font-size: 14px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #7b2cbf;
+    /* chic purple */
+}
+
+/* Fade & slide from top */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.8s ease-out;
+}
+
+/* Fade & slide from bottom */
+.fade-slide-bottom {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease-out;
+}
+
+/* Fade in active state */
+.fade-slide.show,
+.fade-slide-bottom.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Member page styles */
+/* Member Page Title */
+
+/* Push the whole member content below fixed navbar */
+/* Push the whole member content below fixed navbar */
+.member-page {
+    padding-top: 100px;
+    /* adjust for navbar height */
+    padding-bottom: 40px;
+}
+
+/* Member Page Title */
+.member-title {
+    text-align: center;
+    margin: 40px 0;
+    font-size: 2.5rem;
+    transition: 0.3s;
+}
+
+.member-title:hover {
+    color: #7b2cbf;
+    /* chic purple */
+    text-shadow: 0 0 10px #7b2cbf, 0 0 20px #7b2cbf;
+    cursor: pointer;
+}
+
+/* ========================
+   Content Layout
+   ======================== */
+.member-content {
+    display: flex;
+    gap: 40px;
+    padding: 0 40px;
+    flex-wrap: wrap;
+    position: relative;
+    /* for vertical line */
+}
+
+/* Vertical line separator between carousel and info */
+.member-content::before {
+    content: "";
+    position: absolute;
+    left: 42%;
+    /* adjust to align visually between carousel & info */
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #ddd;
+}
+
+@media (max-width: 900px) {
+    .member-content::before {
+        display: none;
+        /* remove vertical line on small screens */
+    }
+}
+
+/* ========================
+   Carousel
+   ======================== */
+.member-carousel {
+    width: 40%;
+    min-width: 300px;
+}
+
+.member-carousel img {
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ========================
+   Personal Info Box
+   ======================== */
+.member-info {
+    width: 55%;
+    min-width: 250px;
+    border: 1px solid #ddd;
+    /* light gray border */
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    margin-bottom: 30px;
+    /* space before song credits */
+}
+
+.member-info h3 {
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.member-info p {
+    margin-bottom: 10px;
+}
+
+
+
+/* ========================
+   Song Credits Box
+   ======================== */
+/* Song Credits Box */
+/* Song Credits Box centered below personal info */
+.song-credits-box {
+    width: 55%;
+    /* same width as personal info */
+    max-width: 600px;
+    /* optional: prevent too wide on large screens */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 80px auto 0 auto;
+    /* top margin + auto horizontal centering */
+}
+
+/* Table styling inside the box */
+.song-credits {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.song-credits th,
+.song-credits td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.song-credits th {
+    background-color: #f3e8ff;
+    color: #7b2cbf;
+}
+
+.song-credits tr:hover {
+    background-color: #f9f0ff;
+}
+
+.song-credits td a {
+    color: #7b2cbf;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.song-credits td a:hover {
+    color: #5a189a;
+    text-decoration: underline;
+}
