@@ -36,6 +36,7 @@ const membersData = {
 
 // Get the member data
 const data = membersData[memberKey] || membersData["miyeon"]; // fallback to Miyeon
+document.title = "IdleFanbase - " + data.title;
 
 // Fill Title
 document.querySelector(".member-title").textContent = data.title;

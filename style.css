@@ -488,3 +488,86 @@ body {
     color: #5a189a;
     text-decoration: underline;
 }
+
+/* =========================
+   Group Page Carousel
+   ========================= */
+
+.group-hero {
+    padding-top: 120px;
+    /* space from navbar */
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+}
+
+.group-carousel {
+    width: 800px;
+    /* control width */
+    max-width: 90%;
+    /* responsive */
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.group-carousel-img {
+    width: 100%;
+    height: 500px;
+    /* control height */
+    object-fit: cover;
+}
+
+/* Optional hover effect */
+.group-carousel:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
+
+/* =========================
+   Group Page Title
+   ========================= */
+
+.group-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    color: white;
+    transition: all 0.4s ease;
+}
+
+/* Hover effect */
+.group-title:hover {
+    color: #ff003c;
+    /* neon red */
+    text-shadow:
+        0 0 5px #ff003c,
+        0 0 10px #ff003c,
+        0 0 20px #ff003c,
+        0 0 40px #ff003c;
+
+    animation: neonShift 1.2s forwards;
+    cursor: default;
+}
+
+/* Animation to chic purple */
+@keyframes neonShift {
+    0% {
+        color: #ff003c;
+        text-shadow:
+            0 0 5px #ff003c,
+            0 0 15px #ff003c,
+            0 0 30px #ff003c;
+    }
+
+    100% {
+        color: #7b2cbf;
+        text-shadow:
+            0 0 5px #7b2cbf,
+            0 0 15px #7b2cbf,
+            0 0 30px #7b2cbf,
+            0 0 60px #7b2cbf;
+    }
+}
