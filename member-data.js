@@ -6,7 +6,7 @@ const memberKey = params.get("member"); // e.g., "miyeon"
 const membersData = {
     miyeon: {
         title: "Miyeon",
-        photos: ["Photo/Group/miyeon1.jpg", "Photo/Group/miyeon2.jpg"],
+        photos: ["Photo/Group/group1.jpg", "Photo/Group/miyeon2.jpg"],
         info: {
             fullname: "Miyeon",
             birthdate: "1997-01-31",

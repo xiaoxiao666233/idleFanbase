@@ -255,6 +255,38 @@ body {
     transform: translateY(0);
 }
 
+/* =========================
+   Member Portrait Carousel
+   ========================= */
+
+.member-portrait-carousel {
+    width: 320px;
+    /* control width */
+    height: 450px;
+    /* portrait height */
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 0 auto;
+    /* center if needed */
+    transition: all 0.3s ease;
+}
+
+.member-portrait-carousel .carousel-inner,
+.member-portrait-carousel .carousel-item {
+    height: 100%;
+}
+
+.member-portrait-carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* fills nicely without stretching */
+}
+
+.member-portrait-carousel:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transform: translateY(-5px);
+}
 
 /* Footer */
 .footer {
@@ -393,6 +425,16 @@ body {
     margin-bottom: 10px;
 }
 
+/* Personal Info small labels hover effect */
+.member-info strong {
+    transition: 0.3s ease;
+    cursor: default;
+}
+
+.member-info strong:hover {
+    color: #7b2cbf;
+    /* chic purple */
+}
 
 
 /* ========================
