@@ -133,6 +133,35 @@ body {
     border-radius: 10px;
 }
 
+/* =========================
+   Index Hero Carousel Neon Animation
+   ========================= */
+
+.hero .carousel {
+    transition: transform 0.4s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hover trigger */
+.hero .carousel:hover {
+    transform: translateY(-8px);
+    animation: carouselGlow 2s infinite alternate;
+}
+
+/* Neon red <-> chic purple animation */
+@keyframes carouselGlow {
+
+    0% {
+        box-shadow: 0 25px 70px rgba(255, 0, 60, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 25px 70px rgba(123, 44, 191, 0.5);
+    }
+}
+
 
 
 /* Members Section */
@@ -490,84 +519,197 @@ body {
 }
 
 /* =========================
-   Group Page Carousel
+   Group Hero Section
    ========================= */
 
 .group-hero {
     padding-top: 120px;
     /* space from navbar */
     display: flex;
-    justify-content: center;
-    /* center horizontally */
+    flex-direction: column;
+    align-items: center;
+    /* center everything horizontally */
+    text-align: center;
+    overflow: visible;
 }
 
+/* Title spacing */
+.group-title {
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* Wrapper to control center */
+.group-carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+/* Hover effect on wrapper instead */
+.group-carousel-wrapper:hover .group-carousel {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 60px rgba(123, 44, 191, 0.3);
+}
+
+
+/* Carousel box */
 .group-carousel {
     width: 800px;
-    /* control width */
     max-width: 90%;
-    /* responsive */
     border-radius: 15px;
     overflow: hidden;
-    transition: 0.3s ease;
+    transition: all 0.4s ease;
 }
 
+
+/* Image control */
 .group-carousel-img {
     width: 100%;
     height: 500px;
-    /* control height */
     object-fit: cover;
 }
 
-/* Optional hover effect */
-.group-carousel:hover {
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-    transform: translateY(-5px);
-}
-
 /* =========================
-   Group Page Title
+   Group Title Neon Effect
    ========================= */
 
 .group-title {
-    text-align: center;
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 40px;
     letter-spacing: 3px;
-    color: white;
-    transition: all 0.4s ease;
+    color: #222;
+    /* dark grey */
+    transition: 0.3s ease;
 }
 
-/* Hover effect */
+/* Hover trigger */
 .group-title:hover {
-    color: #ff003c;
-    /* neon red */
-    text-shadow:
-        0 0 5px #ff003c,
-        0 0 10px #ff003c,
-        0 0 20px #ff003c,
-        0 0 40px #ff003c;
-
     animation: neonShift 1.2s forwards;
     cursor: default;
 }
 
-/* Animation to chic purple */
+/* Neon animation */
 @keyframes neonShift {
+
     0% {
         color: #ff003c;
+        /* neon red */
         text-shadow:
             0 0 5px #ff003c,
             0 0 15px #ff003c,
-            0 0 30px #ff003c;
+            0 0 30px #ff003c,
+            0 0 60px #ff003c;
     }
 
     100% {
         color: #7b2cbf;
+        /* chic purple */
         text-shadow:
             0 0 5px #7b2cbf,
             0 0 15px #7b2cbf,
             0 0 30px #7b2cbf,
             0 0 60px #7b2cbf;
     }
+}
+
+/* =========================
+   Group Info Section
+   ========================= */
+
+.group-info-section {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Section Titles */
+.group-section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Info & Award Boxes */
+.group-info-box,
+.group-award-box {
+    width: 800px;
+    max-width: 90%;
+}
+
+/* Info Table */
+.group-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.group-info-table th {
+    text-align: left;
+    padding: 12px;
+    width: 30%;
+    background: #f8f9fa;
+}
+
+.group-info-table td {
+    padding: 12px;
+    background: #ffffff;
+}
+
+.group-info-table th,
+.group-info-table td {
+    border: 1px solid #ddd;
+}
+
+/* Award Table */
+.group-award-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.group-award-table th {
+    padding: 12px;
+    background: #7b2cbf;
+    color: white;
+}
+
+.group-award-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.group-award-table tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+/* =========================
+   Hover Shadow Effect
+   ========================= */
+
+.group-info-box,
+.group-award-box {
+    width: 800px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    transition: all 0.4s ease;
+}
+
+/* Hover effect - separate */
+.group-info-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.group-award-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(123, 44, 191, 0.25);
+    /* chic purple glow */
 }
