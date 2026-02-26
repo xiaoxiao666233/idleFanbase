@@ -118,7 +118,7 @@ body {
     /* neon red */
     text-shadow: 0 0 1px #ff073a, 0 0 3px #ff073a;
     /* optional glowing effect */
-    cursor: pointer;
+    cursor: default;
 }
 
 /* Right carousel */
@@ -265,7 +265,7 @@ body {
     /* neon red */
     text-shadow: 0 0 1px #ff073a, 0 0 3px #ff073a;
     /* glow effect like h1 */
-    cursor: pointer;
+    cursor: default;
     /* optional: shows pointer on hover */
 }
 
@@ -517,6 +517,15 @@ body {
     color: #5a189a;
     text-decoration: underline;
 }
+
+.album-name {
+    font-size: 0.9rem;
+    color: #7b2cbf;
+    /* chic purple */
+    margin-left: 6px;
+    font-style: italic;
+}
+
 
 /* =========================
    Group Hero Section
