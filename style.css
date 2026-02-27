@@ -488,7 +488,14 @@ body {
     padding: 20px;
     background-color: #fff;
     margin-bottom: 30px;
+    transition: all 0.4s ease;
     /* space before song credits */
+}
+
+/* Hover effect */
+.member-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(123, 44, 191, 0.25);
 }
 
 .member-info h3 {
@@ -841,4 +848,68 @@ body {
 .group-love-box:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(123, 44, 191, 0.3);
+}
+
+/*Reponsive*/
+/* Music Icon */
+/* @media (max-width: 768px) {
+    .music-player {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+} */
+
+/* Member Information Responsive for smaller screens */
+@media (max-width: 900px) {
+    .member-info {
+        width: 90%;
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .member-info h3 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .member-info p {
+        font-size: 14px;
+    }
+}
+
+/* Index Carousel Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #carouselExampleAutoplaying .carousel-inner img {
+        height: auto;
+        /* auto height so full image shows */
+        object-fit: contain;
+        /* show entire image without cropping */
+    }
+
+    /* Optional: add some spacing below carousel */
+    #carouselExampleAutoplaying {
+        margin-bottom: 20px;
+    }
+}
+
+/* Group Carousel Responsive adjustments for phone */
+@media (max-width: 768px) {
+    .group-carousel {
+        width: 100%;
+        /* full width on mobile */
+    }
+
+    .group-carousel-img {
+        height: auto;
+        /* let image height adjust */
+        object-fit: contain;
+        /* show full image without cropping */
+    }
+
+    /* Optional: spacing under carousel */
+    .group-carousel-wrapper {
+        margin-bottom: 20px;
+    }
 }
