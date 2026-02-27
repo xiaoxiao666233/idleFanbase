@@ -317,6 +317,52 @@ body {
     transform: translateY(-5px);
 }
 
+.member-award-box,
+.member-love-box {
+    width: 800px;
+    max-width: 90%;
+    margin: 40px auto;
+    /* center + spacing */
+    padding: 25px;
+    border-radius: 15px;
+    background: #fff;
+    transition: all 0.4s ease;
+}
+
+/* Table styling */
+.member-award-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.member-award-table th {
+    padding: 12px;
+    background: #7b2cbf;
+    color: white;
+}
+
+.member-award-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.member-award-table tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+/* Hover shadow effect */
+.member-award-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(123, 44, 191, 0.25);
+}
+
+.member-love-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(123, 44, 191, 0.25);
+}
+
+
 /* Footer */
 .footer {
     margin-top: 60px;
@@ -382,7 +428,7 @@ body {
     color: #7b2cbf;
     /* chic purple */
     text-shadow: 0 0 10px #7b2cbf, 0 0 20px #7b2cbf;
-    cursor: pointer;
+    cursor: default;
 }
 
 /* ========================
@@ -473,15 +519,20 @@ body {
 /* Song Credits Box centered below personal info */
 .song-credits-box {
     width: 55%;
-    /* same width as personal info */
-    max-width: 600px;
-    /* optional: prevent too wide on large screens */
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    max-width: 90%;
+    margin: 20px auto;
+    /* center and spacing */
     padding: 20px;
-    background-color: #fff;
-    margin: 80px auto 0 auto;
-    /* top margin + auto horizontal centering */
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    transition: all 0.4s ease;
+}
+
+/* Hover effect */
+.song-credits-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(123, 44, 191, 0.25);
 }
 
 /* Table styling inside the box */
@@ -634,7 +685,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
+    gap: 100px;
+    width: 100%;
 }
 
 /* Section Titles */
@@ -646,11 +698,13 @@ body {
 }
 
 /* Info & Award Boxes */
-.group-info-box,
-.group-award-box {
-    width: 800px;
-    max-width: 90%;
+.group-info-box h2,
+.group-award-box h2,
+.group-album-box h2,
+.group-love-box h2 {
+    text-align: center;
 }
+
 
 /* Info Table */
 .group-info-table {
@@ -721,4 +775,70 @@ body {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(123, 44, 191, 0.25);
     /* chic purple glow */
+}
+
+/* =========================
+   Album Section
+   ========================= */
+
+.group-info-box,
+.group-award-box,
+.group-album-box,
+.group-love-box {
+    width: 800px;
+    max-width: 90%;
+    padding: 25px;
+    border-radius: 15px;
+    background: white;
+    transition: all 0.4s ease;
+    margin: 0 auto;
+}
+
+.group-love-box,
+.group-album-box {
+    margin-top: 90px;
+}
+
+
+/* Album Table */
+.group-album-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.group-album-table th {
+    padding: 12px;
+    background: #ff003c;
+    /* neon red theme */
+    color: white;
+}
+
+.group-album-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.group-album-table tr:nth-child(even) {
+    background: #f4f4f4;
+}
+
+/* Love Section Text */
+.group-love-content {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+/* Hover Effects */
+.group-album-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(255, 0, 60, 0.25);
+}
+
+.group-love-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(123, 44, 191, 0.3);
 }

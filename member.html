@@ -17,7 +17,7 @@
     <section class="member-page fade-slide">
         <h1 class="member-title"></h1>
 
-        <div class="member-content">
+        <div class="member-content fade-slide">
             <!-- Portrait Carousel -->
             <div id="memberCarousel" class="carousel slide member-portrait-carousel" data-bs-ride="carousel">
 
@@ -46,28 +46,52 @@
             </div>
         </div>
 
-        <!-- Song Credits -->
-        <div class="song-credits-box fade-slide">
-            <h3>Song Credits</h3>
-            <table class="song-credits">
+        <!-- Personal Awards -->
+        <div class="member-award-box fade-slide">
+            <h2>Personal Awards</h2>
+            <table class=" member-award-table">
                 <thead>
                     <tr>
-                        <th>Song</th>
-                        <th>Role</th>
+                        <th>No.</th>
+                        <th>Award</th>
                         <th>Year</th>
                     </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                    <!-- JS will fill this -->
+                </tbody>
             </table>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <div id="footer-placeholder"></div>
+        <!-- Song Credits -->
+        <div class="song-credits-box fade-slide-bottom"">
+            <h3>Song Credits</h3>
+            <table class=" song-credits">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Role</th>
+                    <th>Year</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+            </table>
+        </div>
 
-    <!-- Scripts -->
-    <script src="include.js"></script>
-    <script src="member-data.js"></script>
+        <!-- Why I Love This Member -->
+        <div class="member-love-box fade-slide-bottom"">
+            <h2>Why I Love This Member</h2>
+            <p class=" member-love-content" id="member-love-text">
+            </p>
+        </div>
+
+
+        <!-- Footer -->
+        <div id="footer-placeholder"></div>
+
+        <!-- Scripts -->
+        <script src="include.js"></script>
+        <script src="member-data.js"></script>
 </body>
 
 <!-- load animation -->
