@@ -19,7 +19,9 @@ const membersData = {
             fullname: "Cho Miyeon 조미연",
             birthdate: "1997-01-31",
             position: "Main Vocalist, Visual",
-            nationality: "Korea"
+            nationality: "Korea",
+            animalcolor: "🐰🐊 (Rabbit & Crocodile), Green",
+            personality: "Gentle • Easygoing • Secretly Chaotic"
         },
         awards: [
             { title: "TIRTIR Popularity Star Award – Blue Dragon Series Awards", year: 2024 },
@@ -85,7 +87,9 @@ const membersData = {
             fullname: "Kim Minnie ณิชา ยนตรรักษ์ (Nicha Yontararak)",
             birthdate: "1997-10-23",
             position: "Main Vocalist",
-            nationality: "Thailand"
+            nationality: "Thailand",
+            animalcolor: "🐭🐱 (Mouse & Cat), Blue",
+            personality: "Dreamy • Artistic • Emotionally Deep"
         },
         awards: [
             { title: "1st Solo Music Show Win – Music Bank", year: 2025 },
@@ -262,7 +266,9 @@ const membersData = {
             fullname: "Jeon Soyeon 전소연",
             birthdate: "1998-08-26",
             position: "Leader, Main Rapper, Sub-Vocalist, Center",
-            nationality: "Korea"
+            nationality: "Korea",
+            animalcolor: "🐯🦁 (Tiger & Lion), Red",
+            personality: "Driven • Perfectionist • Charismatic"
         },
         awards: [
             { title: "Best Songwriter – Melon Music Awards", year: 2024 },
@@ -679,7 +685,9 @@ const membersData = {
             fullname: "Song Yuqi 宋雨琦",
             birthdate: "1999-09-23",
             position: "Lead Dancer, Sub-Vocalist, Sub-Rapper, Face of the Group",
-            nationality: "China"
+            nationality: "China",
+            animalcolor: "🦒🐶 (Giraffe & Puppy), Orange",
+            personality: "Outgoing • Energetic • Confident"
         },
         awards: [
             { title: "Most Influential Dance Singer of the Year – Tencent Music Entertainment Awards", year: 2025 },
@@ -879,7 +887,9 @@ const membersData = {
             fullname: "Yeh Shuhua 葉舒華",
             birthdate: "2000-01-06",
             position: "Vocalist, Visual, Maknae",
-            nationality: "Taiwan"
+            nationality: "Taiwan",
+            animalcolor: "🦊🐶 (Fox & Puppy), Purple",
+            personality: "Honest • Straightforward • Loyal"
         },
         awards: [
             { title: "Best Choice – 10th Asia Artist Awards", year: 2025 }
@@ -911,6 +921,8 @@ document.getElementById("fullname").textContent = data.info.fullname;
 document.getElementById("birthdate").textContent = data.info.birthdate;
 document.getElementById("position").textContent = data.info.position;
 document.getElementById("nationality").textContent = data.info.nationality;
+document.getElementById("animalcolor").textContent = data.info.animalcolor;
+document.getElementById("personality").textContent = data.info.personality;
 
 // Fill Carousel
 const carouselInner = document.querySelector(".carousel-inner");
