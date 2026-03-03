@@ -968,3 +968,14 @@ body {
     h3 { font-size: 18px; }
     p  { font-size: 14px; }
 }
+
+
+/* Make album table scrollable on phone */
+@media (max-width: 768px) {
+    .group-album-box {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
