@@ -979,3 +979,30 @@ body {
     }
 }
 
+/* Make index member list scrollable on phone */
+@media (max-width: 768px) {
+    .member-item {
+        display: block;
+        overflow-x: auto;
+        
+    }
+}
+
+/* adjust the index top responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;   /* stack vertically */
+    }
+
+    /* Make carousel appear FIRST */
+    .hero .carousel {
+        order: -1;
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    .hero-text {
+        text-align: center;
+        width: 100%;
+    }
+}
