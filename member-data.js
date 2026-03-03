@@ -1,6 +1,6 @@
 // Read the member from URL: ?member=miyeon
 const params = new URLSearchParams(window.location.search);
-const memberKey = params.get("member"); // e.g., "miyeon"
+const memberKey = params.get("member"); 
 
 // Animate all fade-slide elements
 window.addEventListener('load', () => {

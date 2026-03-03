@@ -588,6 +588,25 @@ body {
 /* =========================
    Group Hero Section
    ========================= */
+   .member-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: inherit;              /* normal text color */
+    transition: all 0.3s ease;
+}
+
+/* Hover Colors */
+.miyeon-link:hover  { color: #2ecc71; }   /* Green */
+.minnie-link:hover  { color: #3498db; }   /* Blue */
+.soyeon-link:hover  { color: #e74c3c; }   /* Red */
+.yuqi-link:hover    { color: #f39c12; }   /* Orange */
+.shuhua-link:hover  { color: #9b59b6; }   /* Purple */
+
+/* Optional small lift effect */
+.member-links a:hover {
+    transform: translateY(-2px);
+}
+
 
 .group-hero {
     padding-top: 120px;
@@ -912,4 +931,40 @@ body {
     .group-carousel-wrapper {
         margin-bottom: 20px;
     }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+
+    .member-info {
+        width: 95%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .group-carousel-img,
+    .carousel-inner img {
+        height: auto;
+        object-fit: contain;
+    }
+
+    .song-credits,
+    .member-award-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-link {
+        padding: 12px 0;
+    }
+
+    h1 { font-size: 26px; }
+    h2 { font-size: 22px; }
+    h3 { font-size: 18px; }
+    p  { font-size: 14px; }
 }
