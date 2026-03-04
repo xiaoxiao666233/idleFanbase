@@ -80,7 +80,7 @@ const membersData = {
 
         ],
         love: `I love Miyeon because she truly embodies the word goddess. Her visuals are stunning, and her vocals are top-tier — strong, unique, and instantly recognizable in every song. She brings such power and emotion to her lines, making every note feel meaningful.\n\n
-    Miyeon also inspires me deeply. During the difficult time in 2021 after Soojin’s incident, when the group’s activities were on hold, she worked tirelessly as an MC on MCountdown to keep (G)I-DLE in the public eye. Her dedication showed how much she cares for the group and their fans.\n\n
+    Miyeon also inspires me deeply. During the difficult time in 2021 after Soojin’s incident, when the group’s activities were on hold, she worked tirelessly as an MC on MCountdown to keep I-DLE in the public eye. MiyeonS dedication showed how much she cares for the group and their fans.\n\n
     Off stage, she’s chaotic, silly, and full of life — always spreading happy vibes to everyone around her. As the oldest member, she naturally looks out for the others, balancing her fun personality with a sense of care and responsibility.
     Miyeon isn’t just a vocalist or visual — she’s the heart and soul of the group, inspiring fans and members alike with her talent, warmth, and dedication.
     `
@@ -267,7 +267,7 @@ const membersData = {
 
 Minnie is also incredibly caring toward the younger members, always looking out for them. Her natural confidence is inspiring, yet she’s sensitive and genuine — she can easily cry at concerts, showing how deeply she feels her music and connection with fans.
 
-On stage, she’s a consummate professional, giving 100% in every performance. Off stage, she’s cute, playful, and very affectionate, showing a different, warmer side of herself. Minnie balances strength and vulnerability in such a beautiful way, which makes her so lovable.`
+On stage, Minnie is a consummate professional, giving 100% in every performance. Off stage, she’s cute, playful, and very affectionate, showing a different, warmer side of herself. Minnie balances strength and vulnerability in such a beautiful way, which makes her so lovable.`
     },
     soyeon: {
         title: "Soyeon",
@@ -689,9 +689,9 @@ On stage, she’s a consummate professional, giving 100% in every performance. O
         ],
         love: `I love Soyeon because she has always been my bias in the group, and her journey inspires me deeply. She debuted at such a young age and faced criticism about her appearance during Produce 101, yet she never gave up. She continued to challenge herself on Unpretty Rapstar 3, showing incredible resilience and determination.
 
-Soyeon is a perfectionist and a true professional. Even before debut, she rarely made mistakes on stage, mastering every genre — rap, dance, vocals, and even visuals. She produces almost all of I-DLE’s songs and encourages the other members to contribute creatively as well. Beyond singing and dancing, she directs choreography, guides album concepts, and mentors the members in rap — her unique flow is always top-tier.
+Soyeon is a perfectionist and a true professional. Even before debut, she rarely made mistakes on stage, mastering every genre — rap, dance, vocals, and even visuals. She produces almost all of I-DLE’s songs and encourages the other members to contribute creatively as well. Beyond singing and dancing, Soyeon also directs choreography, guides album concepts, and mentors the members in rap — her unique flow is always top-tier.
 
-Off stage, she’s a different but equally inspiring person: quiet, calm, patient, and introverted. As a leader, she encourages and supports every member, patiently guiding them during recordings and performances. Her strength and dedication remind me that women can do anything, and she continues to inspire me to be confident, fearless, and ambitious.`
+Off stage, Soyeon is a different but equally inspiring person: quiet, calm, patient, and introverted. As a leader, she encourages and supports every member, patiently guiding them during recordings and performances. Her strength and dedication remind me that women can do anything, and she continues to inspire me to be confident, fearless, and ambitious.`
     },
     yuqi: {
         title: "Yuqi",
@@ -896,9 +896,9 @@ Off stage, she’s a different but equally inspiring person: quiet, calm, patien
         ],
         love: `I love Yuqi because her visuals are adorably cute, but her voice is deep and husky — a rare combination that makes her instantly memorable. She is one of the most developed and confident members of the group, balancing chaos and humor with genuine care for everyone around her.
 
-Yuqi is professional in everything she does, whether it’s performing on stage or appearing on variety shows. Her charisma is undeniable, and she always gives her best in every performance. Beyond the stage, she shows her caring side, especially toward Soyeon, gently encouraging her to open up and participate more off stage.
+Yuqi is professional in everything she does, whether it’s performing on stage or appearing on variety shows. Her charisma is undeniable, and she always gives her best in every performance. Beyond the stage, Yuqi shows her caring side, especially toward Soyeon, gently encouraging her to open up and participate more off stage.
 
-Her dancing is powerful and cool, and her skills in producing and contributing to songs are impressive. Yuqi’s confidence, talent, and caring nature make her an inspiring, multifaceted member that I truly admire.`
+Yuqi's dancing is powerful and cool, and her skills in producing and contributing to songs are impressive. Yuqi’s confidence, talent, and caring nature make her an inspiring, multifaceted member that I truly admire.`
     },
     shuhua: {
         title: "Shuhua",
@@ -925,7 +925,7 @@ Her dancing is powerful and cool, and her skills in producing and contributing t
         ],
         love: `I love Shuhua because of her unique, natural beauty — her visuals are effortlessly stunning. Even though her skills weren’t as polished as the other members at debut, I admire her determination and never-give-up attitude. She’s shy on stage, but off stage she’s chaotic, playful, and full of life, which makes her beloved by the other members.
 
-Shuhua is also protective and fearless when it comes to her group, always looking out for her members. Recently, she has started contributing to producing songs, which makes Neverland proud and shows how much she’s grown as an artist. Her growth, courage, and adorable personality make her incredibly lovable and inspiring.`
+Shuhua is also protective and fearless when it comes to her group, always looking out for her members. Recently, Shuhua has started contributing to producing songs, which makes Neverland proud and shows how much she’s grown as an artist. Shuhua's growth, courage, and adorable personality make her incredibly lovable and inspiring.`
 
     }
     // Add other members here...
