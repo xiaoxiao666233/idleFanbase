@@ -83,6 +83,27 @@ body {
     /* chic purple text */
 }
 
+/* Footer */
+.footer {
+    margin-top: 60px;
+    padding: 20px 40px;
+    text-align: center;
+    border-top: 1px solid #eee;
+    background-color: white;
+    font-size: 14px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.footer a:hover {
+    color: #7b2cbf;
+    /* chic purple */
+}
+
 /*index.html */
 
 /* Hero Section */
@@ -282,7 +303,8 @@ body {
    Group Title Neon Effect
    ========================= */
 
-.group-title {
+.group-title,
+.category-title {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 40px;
@@ -293,7 +315,8 @@ body {
 }
 
 /* Hover trigger */
-.group-title:hover {
+.group-title:hover,
+.category-title:hover {
     animation: neonShift 1.2s forwards;
     cursor: default;
 }
@@ -373,4 +396,45 @@ body {
 .group-info-table th,
 .group-info-table td {
     border: 1px solid #ddd;
+}
+
+/* =========================
+   Hover Shadow Effect
+   ========================= */
+
+   .group-info-box {
+       width: 800px;
+       max-width: 90%;
+       padding: 25px;
+       border-radius: 15px;
+       background: white;
+       transition: all 0.4s ease;
+   }
+   
+   /* Hover effect - separate */
+   .group-info-box:hover {
+       transform: translateY(-5px);
+       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+   }
+
+   /* member name color */
+   .member-links a,
+   .idlefanbasehome-links a {
+    text-decoration: none;
+    font-weight: 600;
+    color: inherit;              /* normal text color */
+    transition: all 0.3s ease;
+}
+
+/* Hover Colors */
+.miyeon-link:hover  { color: #2ecc71; }   /* Green */
+.minnie-link:hover  { color: #3498db; }   /* Blue */
+.soyeon-link:hover  { color: #e74c3c; }   /* Red */
+.yuqi-link:hover    { color: #f39c12; }   /* Orange */
+.shuhua-link:hover  { color: #9b59b6; }
+.idlefanbasehome-link:hover  { color: #868686; }   /* Purple */
+
+/* Optional small lift effect */
+.member-links a:hover {
+    transform: translateY(-2px);
 }
