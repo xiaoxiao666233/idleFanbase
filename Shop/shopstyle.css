@@ -1,0 +1,376 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* Navigation Bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #ffffff;
+    /* light gray */
+    border-bottom: 3px solid #ccc;
+    /* thicker, darker line for emphasis */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* nav-center on right */
+.nav-center {
+    display: flex;
+    gap: 30px;
+    /* space between buttons */
+    margin-right: 20px;
+    /* move buttons slightly left from screen edge */
+}
+
+/* === Navbar Buttons (All Types) === */
+.nav-btn,
+.nav-btn-custom,
+.custom-dropdown {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px;
+    /* fixed height */
+    padding: 0 15px;
+    /* horizontal padding */
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black !important;
+    /* force border on all buttons */
+    border-radius: 8px;
+    background: none !important;
+    /* remove any Bootstrap background */
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect: Chic purple background + white text */
+.nav-btn:hover,
+.nav-btn-custom:hover,
+.custom-dropdown:hover {
+    background-color: #7b2cbf !important;
+    /* chic purple */
+    color: white !important;
+    /* text turns white */
+    border: 1px solid #7b2cbf !important;
+    /* border matches hover color */
+    text-decoration: none;
+}
+
+/* Remove focus outline */
+.nav-btn:focus,
+.nav-btn-custom:focus,
+.custom-dropdown:focus {
+    outline: none;
+}
+
+/* Dropdown item hover style */
+.dropdown-item:hover {
+    background-color: #f3e8ff;
+    /* light purple highlight */
+    color: #7b2cbf;
+    /* chic purple text */
+}
+
+/*index.html */
+
+/* Hero Section */
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 120px 40px 60px 40px;
+    /* top padding increased to push section down */
+    gap: 40px;
+    /* space between text and carousel */
+}
+
+/* Left text */
+.hero-text {
+    width: 40%;
+}
+
+/* H1 hover effect */
+.hero-text h1 {
+    transition: 0.3s;
+}
+
+.hero-text h1:hover {
+    color: #ff073a;
+    /* neon red */
+    text-shadow: 0 0 1px #ff073a, 0 0 3px #ff073a;
+    /* optional glowing effect */
+    cursor: default;
+}
+
+/* Right carousel */
+.carousel {
+    width: 55%;
+}
+
+/* Carousel images */
+.carousel img {
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* =========================
+   Index Hero Carousel Neon Animation
+   ========================= */
+
+.hero .carousel {
+    transition: transform 0.4s ease;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Hover trigger */
+.hero .carousel:hover {
+    transform: translateY(-8px);
+    animation: carouselGlow 2s infinite alternate;
+}
+
+/* Neon red <-> chic purple animation */
+@keyframes carouselGlow {
+
+    0% {
+        box-shadow: 0 25px 70px rgba(255, 0, 60, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 25px 70px rgba(123, 44, 191, 0.5);
+    }
+}
+
+/* Trending Products */
+.product-card img {
+    height: 300px;
+    object-fit: cover; /* This prevents images from stretching */
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05); /* Subtle zoom on hover */
+}
+
+.product-card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.product-name {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Category Section */
+.category-img-wrapper {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 50%; /* Makes it a circle */
+    border: 5px solid #f8f9fa;
+    transition: all 0.3s ease;
+}
+
+.category-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.category-name {
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Hover Effects */
+.category-link:hover .category-img-wrapper {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #000; /* Change color to your brand color */
+}
+
+.category-link:hover .category-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.category-link:hover .category-name {
+    color: #007bff; /* Change color on hover */
+}
+
+/* About us's html */
+
+/* Main Photo */
+.group-hero {
+    padding-top: 120px;
+    /* space from navbar */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* center everything horizontally */
+    text-align: center;
+    overflow: visible;
+}
+
+/* Title spacing */
+.group-title {
+    margin-bottom: 40px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+/* Wrapper to control center */
+.group-carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+/* Hover effect on wrapper instead */
+.group-carousel-wrapper:hover .group-carousel {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 60px rgba(123, 44, 191, 0.3);
+}
+
+
+/* Carousel box */
+.group-carousel {
+    width: 800px;
+    max-width: 90%;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+
+/* Image control */
+.group-carousel-img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+/* =========================
+   Group Title Neon Effect
+   ========================= */
+
+.group-title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    letter-spacing: 3px;
+    color: #222;
+    /* dark grey */
+    transition: 0.3s ease;
+}
+
+/* Hover trigger */
+.group-title:hover {
+    animation: neonShift 1.2s forwards;
+    cursor: default;
+}
+
+/* Neon animation */
+@keyframes neonShift {
+
+    0% {
+        color: #ff003c;
+        /* neon red */
+        text-shadow:
+            0 0 5px #ff003c,
+            0 0 15px #ff003c,
+            0 0 30px #ff003c,
+            0 0 60px #ff003c;
+    }
+
+    100% {
+        color: #7b2cbf;
+        /* chic purple */
+        text-shadow:
+            0 0 5px #7b2cbf,
+            0 0 15px #7b2cbf,
+            0 0 30px #7b2cbf,
+            0 0 60px #7b2cbf;
+    }
+}
+
+/* =========================
+   Group Info Section
+   ========================= */
+
+   .group-info-section {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+}
+
+/* Section Titles */
+.group-section-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Info & Award Boxes */
+.group-info-box h2,
+.group-award-box h2,
+.group-album-box h2,
+.group-love-box h2 {
+    text-align: center;
+}
+
+
+/* Info Table */
+.group-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.group-info-table th {
+    text-align: left;
+    padding: 12px;
+    width: 30%;
+    background: #f8f9fa;
+}
+
+.group-info-table td {
+    padding: 12px;
+    background: #ffffff;
+}
+
+.group-info-table th,
+.group-info-table td {
+    border: 1px solid #ddd;
+}
