@@ -111,6 +111,32 @@ body {
 
 /*index.html */
 
+.latest-comeback {
+    margin-top: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.latest-comeback span {
+    background: linear-gradient(45deg, #7b2cbf, #ff003c);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    margin-left: 10px;
+    box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4);
+    display: inline-block;
+    animation: pulseGlow 2s infinite;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 4px 25px rgba(255, 0, 60, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 4px 15px rgba(123, 44, 191, 0.4); }
+}
+
 /* Hero Section */
 .hero {
     display: flex;
@@ -128,16 +154,138 @@ body {
 }
 
 /* H1 hover effect */
-.hero-text h1 {
+.hero-text h1,
+.hover-title,
+.product-name-color,
+#p-name {
     transition: 0.3s;
 }
 
-.hero-text h1:hover {
+.hero-text h1:hover,
+.hover-title:hover,
+#p-name:hover {
     color: #ff073a;
     /* neon red */
     text-shadow: 0 0 1px #ff073a, 0 0 3px #ff073a;
     /* optional glowing effect */
     cursor: default;
+}
+
+#p-price {
+    color: #6c757d !important; /* This is the standard Bootstrap 'muted' grey */
+    font-weight: 600;          /* Keeps it easy to read */
+    margin-bottom: 20px;
+    font-size: 1.5rem;         /* Adjust size if it feels too small */
+}
+
+.product-name-color {
+    color:#000;
+}
+
+.product-name-color:hover {
+    cursor: pointer;
+    color:#7b2cbf;
+    /* text-shadow: 0 0 1px #7b2cbf, 0 0 3px #7b2cbf; */
+}
+
+/* Target the labels specifically inside the version container */
+#p-versions label {
+    transition: all 0.3s ease;
+    border-width: 2px; /* Makes the button feel more solid */
+}
+
+/* Hover effect: When the mouse is over the label */
+#p-versions label:hover {
+    background-color: #7b2cbf !important; /* Your signature purple */
+    color: white !important;              /* Change text to white for contrast */
+    border-color: #7b2cbf !important;
+    transform: translateY(-1px);          /* Slight lift effect */
+}
+
+/* Selected state: When the radio button is actually clicked/checked */
+#p-versions .btn-check:checked + label {
+    background-color: #222; /* Darker color for the "Active" selection */
+    border-color: #222;
+    color: white;
+}
+
+/* 1. ADD TO CART BUTTON (Outline version) */
+.btn-outline-dark:hover {
+    background-color: #7b2cbf !important; /* Purple Background */
+    color: #ffffff !important;           /* White Text */
+    border-color: #7b2cbf !important;     /* Purple Border */
+    transition: 0.3s ease;
+}
+
+/* 2. BUY NOW BUTTON (Solid version) */
+.btn-dark:hover {
+    background-color: #9d4edd !important; /* A slightly lighter purple for contrast */
+    border-color: #9d4edd !important;
+    color: #ffffff !important;           /* Keeps text white */
+    transition: 0.3s ease;
+}
+
+/* Optional: Add a slight "pop" effect when hovering either button */
+.btn-lg:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(123, 44, 191, 0.3);
+}
+
+/* 1. Base style for all thumbnails */
+#p-thumbnails img {
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for the shadow */
+    border: 2px solid transparent; /* Prevents jumping when active border is added */
+}
+
+/* 2. Hover effect: Add the shadow */
+#p-thumbnails img:hover {
+    transform: translateY(-3px); /* Subtle lift up */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft dark shadow */
+    border-color: #7b2cbf; /* Optional: adds your purple theme border on hover */
+}
+
+/* 3. Style for the currently active thumbnail */
+.thumb-active {
+    border-color: #7b2cbf !important;
+    box-shadow: 0 2px 8px rgba(123, 44, 191, 0.4);
+}
+
+/* Target the container to make sure it ALLOWS shadows to show */
+.main-img-container {
+    overflow: visible !important; 
+    padding: 10px; /* Gives the shadow "room" to breathe */
+}
+
+#main-product-img {
+    display: block;
+    transition: all 0.4s ease;
+    background-color: white; /* Ensures shadow has something to 'cast' from */
+    border-radius: 8px;
+}
+
+#main-product-img:hover {
+    transform: translateY(-5px); /* Lift it up */
+    /* Stronger, darker shadow so you can definitely see it */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3) !important; 
+    z-index: 10; /* Pulls it 'above' other elements */
+}
+
+/* THE PHOTO SIZE */
+.product-card img, 
+.card-img-top {
+    width: 100%;
+    height: 300px;       /* Set a fixed height for the grid */
+    object-fit: cover;   /* This is the magic! It crops the image to fit the box instead of squishing it */
+    object-position: center;
+    background-color: #f8f9fa; /* Fills gaps with a light grey if the image is too small */
+}
+
+/* For the Product Detail Main Image */
+#main-product-img {
+    width: 100%;
+    height: 500px;       /* Larger for the detail page */
+    object-fit: contain; /* 'contain' ensures the whole product is visible without cropping */
 }
 
 /* Right carousel */
@@ -198,7 +346,7 @@ body {
     transition: box-shadow 0.3s ease;
 }
 
-.product-card:hover {
+.product-card:hover{
     box-shadow: 0 8px 15px rgba(0,0,0,0.2);
 }
 
@@ -219,7 +367,7 @@ body {
     margin: 0 auto;
     overflow: hidden;
     border-radius: 50%; /* Makes it a circle */
-    border: 5px solid #f8f9fa;
+    border: 3px solid #aaabab;
     transition: all 0.3s ease;
 }
 
@@ -240,7 +388,7 @@ body {
 .category-link:hover .category-img-wrapper {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    border-color: #000; /* Change color to your brand color */
+    border-color: #656565; /* Change color to your brand color */
 }
 
 .category-link:hover .category-img-wrapper img {
@@ -248,7 +396,7 @@ body {
 }
 
 .category-link:hover .category-name {
-    color: #007bff; /* Change color on hover */
+    color: #7b2cbf; /* Change color on hover */
 }
 
 /* About us's html */
@@ -312,7 +460,9 @@ body {
 #category-title {
     font-size: 48px;
     font-weight: bold;
-    margin-bottom: 40px;
+    margin-top: 0;        /* Remove default top margin */
+    margin-bottom: 30px;  /* Space between title and products */
+    padding-top: 0;       /* Ensure no padding is pushing it down */
     letter-spacing: 3px;
     color: #222;
     /* dark grey */

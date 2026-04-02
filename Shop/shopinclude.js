@@ -42,7 +42,7 @@ function loadTrending() {
                 </a>
                 
                 <div class="card-body text-center">
-                    <a href="product.html?id=${product.id}" class="text-decoration-none text-dark">
+                    <a href="product.html?id=${product.id}" class="text-decoration-none product-name-color">
                         <h5 class="product-name">${product.name}</h5>
                     </a>
                     
@@ -61,7 +61,7 @@ function loadTrending() {
 }
 
 function redirectToProduct(id) {
-    alert("Please select a version on the product page to add this item to your cart! ✨");
+    alert("Please select a version before adding to cart!");
     window.location.href = `product.html?id=${id}`;
 }
 
@@ -87,9 +87,6 @@ function loadCategoryPage() {
     // 3. Change the <h2> heading on the page
     titleElement.innerText = formattedTitle;
 
-    // 2. Update the Page Title
-    titleElement.innerText = categoryType.toUpperCase();
-
     // 3. Filter products by that category
     const filteredProducts = products.filter(item => item.category === categoryType);
 
@@ -103,7 +100,7 @@ function loadCategoryPage() {
                     </a>
                     
                     <div class="card-body text-center">
-                        <a href="product.html?id=${product.id}" class="text-decoration-none text-dark">
+                        <a href="product.html?id=${product.id}" class="text-decoration-none product-name-color">
                             <h5 class="product-name">${product.name}</h5>
                         </a>
                         
@@ -147,10 +144,10 @@ function loadSuggestedProducts() {
     container.innerHTML = selected.map(product => `
         <div class="col-md-4">
             <a href="product.html?id=${product.id}" class="text-decoration-none text-dark">
-                <div class="card h-100 border-0 shadow-sm product-card">
+                <div class="card product-card">
                     <img src="${product.image}" class="card-img-top rounded" alt="${product.name}">
                     <div class="card-body text-center">
-                        <h6 class="product-name mb-1">${product.name}</h6>
+                        <h6 class="product-name mb-1 text-decoration-none product-name-color">${product.name}</h6>
                         <p class="product-price text-muted small">RM${product.price.toFixed(2)}</p>
                         <div class="d-grid gap-2">
                         <button class="btn btn-outline-dark" onclick="redirectToProduct(${product.id})">Add to Cart</button>
@@ -211,7 +208,7 @@ function addToCart(showNotification = true) {
     const selectedRadio = document.querySelector('input[name="v-option"]:checked');
     
     if (!selectedRadio) {
-        alert("Please select a version before adding to cart! ✨");
+        alert("Please select a version before adding to cart!");
         return false; // Return false so buyNow() stops here
     }
 
@@ -308,7 +305,7 @@ function loadCartPage() {
             </a>
 
             <div class="flex-grow-1">
-                <a href="product.html?id=${item.id}" class="text-decoration-none text-dark">
+                <a href="product.html?id=${item.id}" class="text-decoration-none product-name-color">
                     <h5 class="mb-1">${item.name}</h5>
                 </a>
                 <p class="text-muted small mb-0">Version: ${item.version}</p>
@@ -370,7 +367,7 @@ function clearCart() {
 function checkout() {
     const cart = JSON.parse(localStorage.getItem('idleCart')) || [];
     if (cart.length === 0) {
-        alert("Your cart is empty! Go buy some G-IDLE merch first. 💅");
+        alert("Your cart is empty! Please add some items before checking out.");
     } else {
         alert("Thank you for your order! This is where a payment gateway would go.");
         localStorage.removeItem('idleCart'); // Clear cart after "purchase"
