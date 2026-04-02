@@ -19,12 +19,16 @@ includeHTML('footer-placeholder', 'shopfooter.html');
 
 // This waits for the website to finish loading
 document.addEventListener('DOMContentLoaded', () => {
-    loadTrending();
+    if (document.getElementById('trending-container')) loadTrending();
+    if (document.getElementById('category-container')) loadCategoryPage();
+    if (document.getElementById('product-detail-content')) loadProductDetail();
+    if (document.getElementById('cart-items-container')) loadCartPage();
+    if (document.getElementById('suggested-products-container')) loadSuggestedProducts();
 });
 
 function loadTrending() {
     const container = document.getElementById('trending-container');
-    
+
     // Check if the container exists (so you don't get errors on other pages)
     if (!container) return;
 
@@ -33,16 +37,343 @@ function loadTrending() {
     container.innerHTML = trendingItems.map(product => `
         <div class="col-md-4">
             <div class="card h-100 product-card">
-                <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                <a href="product.html?id=${product.id}">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                </a>
+                
                 <div class="card-body text-center">
-                    <h5 class="product-name">${product.name}</h5>
+                    <a href="product.html?id=${product.id}" class="text-decoration-none text-dark">
+                        <h5 class="product-name">${product.name}</h5>
+                    </a>
+                    
                     <p class="product-price text-muted">RM${product.price.toFixed(2)}</p>
+                    
+                    
                     <div class="d-grid gap-2">
-                        <button class="btn btn-outline-dark">Add to Cart</button>
-                        <button class="btn btn-dark">Buy Now</button>
+                    <button class="btn btn-outline-dark" onclick="redirectToProduct(${product.id})">Add to Cart</button>
+
+                    <button class="btn btn-dark" onclick="redirectToProduct(${product.id})">Buy Now</button>
                     </div>
                 </div>
             </div>
         </div>
     `).join('');
+}
+
+function redirectToProduct(id) {
+    alert("Please select a version on the product page to add this item to your cart! ✨");
+    window.location.href = `product.html?id=${id}`;
+}
+
+function loadCategoryPage() {
+    const container = document.getElementById('category-container');
+    const titleElement = document.getElementById('category-title');
+
+    // 1. Get the category name from the URL (e.g., category.html?type=albums)
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryType = urlParams.get('type'); // This captures "albums"
+
+    if (!categoryType) {
+        container.innerHTML = "<p>Please select a category.</p>";
+        return;
+    }
+    // --- NEW LOGIC START ---
+    // 1. Capitalize the first letter (e.g., "merch" -> "Merch")
+    const formattedTitle = categoryType.charAt(0).toUpperCase() + categoryType.slice(1);
+    
+    // 2. Change the browser tab title
+    document.title = `${formattedTitle} - IdleShop`;
+    
+    // 3. Change the <h2> heading on the page
+    titleElement.innerText = formattedTitle;
+
+    // 2. Update the Page Title
+    titleElement.innerText = categoryType.toUpperCase();
+
+    // 3. Filter products by that category
+    const filteredProducts = products.filter(item => item.category === categoryType);
+
+    // 4. Inject into HTML
+    if (filteredProducts.length > 0) {
+        container.innerHTML = filteredProducts.map(product => `
+            <div class="col-md-4">
+                <div class="card h-100 product-card">
+                    <a href="product.html?id=${product.id}">
+                        <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                    </a>
+                    
+                    <div class="card-body text-center">
+                        <a href="product.html?id=${product.id}" class="text-decoration-none text-dark">
+                            <h5 class="product-name">${product.name}</h5>
+                        </a>
+                        
+                        <p class="product-price text-muted">RM${product.price.toFixed(2)}</p>
+                        
+                        <div class="d-grid gap-2">
+                        <button class="btn btn-outline-dark" onclick="redirectToProduct(${product.id})">Add to Cart</button>
+
+                        <button class="btn btn-dark" onclick="redirectToProduct(${product.id})">Buy Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    } else {
+        container.innerHTML = "<p class='text-center'>No products found in this category.</p>";
+    }
+}
+
+function changeImg(src) {
+    document.getElementById('main-product-img').src = src;
+
+    // Optional: add a "active" border to the clicked thumbnail
+    const thumbnails = document.querySelectorAll('.thumbnail-row img');
+    thumbnails.forEach(img => {
+        img.classList.remove('thumb-active');
+        if (img.src === src) img.classList.add('thumb-active');
+    });
+}
+
+function loadSuggestedProducts() {
+    const container = document.getElementById('suggested-products-container');
+    if (!container) return;
+
+    // 1. Shuffle the products array and take the first 3
+    // (This makes the 'You May Also Like' section different every time)
+    const shuffled = [...products].sort(() => 0.5 - Math.random());
+    const selected = shuffled.slice(0, 3);
+
+    // 2. Map them into the HTML
+    container.innerHTML = selected.map(product => `
+        <div class="col-md-4">
+            <a href="product.html?id=${product.id}" class="text-decoration-none text-dark">
+                <div class="card h-100 border-0 shadow-sm product-card">
+                    <img src="${product.image}" class="card-img-top rounded" alt="${product.name}">
+                    <div class="card-body text-center">
+                        <h6 class="product-name mb-1">${product.name}</h6>
+                        <p class="product-price text-muted small">RM${product.price.toFixed(2)}</p>
+                        <div class="d-grid gap-2">
+                        <button class="btn btn-outline-dark" onclick="redirectToProduct(${product.id})">Add to Cart</button>
+                        <button class="btn btn-dark" onclick="redirectToProduct(${product.id})">Buy Now</button>
+                        
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    `).join('');
+}
+
+function loadProductDetail() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+
+    // Find the product by ID
+    const product = products.find(p => p.id === productId);
+
+    if (!product) {
+        document.getElementById('product-detail-content').innerHTML = "<h2>Product not found</h2>";
+        document.title = "Product Not Found - I-dle Shop"; // Set title for error
+        return;
+    }
+
+    // --- CHANGE THE TAB TITLE HERE ---
+    document.title = `${product.name} - IdleShop`;
+
+    // Update Text Content
+    document.getElementById('main-product-img').src = product.image;
+    document.getElementById('p-name').innerText = product.name;
+    document.getElementById('p-description').innerText = product.description;
+    document.getElementById('p-price').innerText = `RM${product.price.toFixed(2)}`;
+
+    // Update Thumbnails
+    const thumbContainer = document.getElementById('p-thumbnails');
+    thumbContainer.innerHTML = product.thumbnails.map((src, index) => `
+        <img src="${src}" class="img-thumbnail ${index === 0 ? 'thumb-active' : ''}" onclick="changeImg(this.src)">
+    `).join('');
+
+    // Update Version Buttons
+    const versionContainer = document.getElementById('p-versions');
+    versionContainer.innerHTML = product.versions.map((v, index) => `
+        <input type="radio" class="btn-check" name="v-option" id="v${index}" autocomplete="off">
+        <label class="btn btn-outline-dark" for="v${index}">${v}</label>
+    `).join('');
+}
+
+// We add 'showNotification' as a parameter (default is true)
+function addToCart(showNotification = true) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get('id'));
+    const product = products.find(p => p.id === productId);
+
+    if (!product) return false;
+
+    const selectedRadio = document.querySelector('input[name="v-option"]:checked');
+    
+    if (!selectedRadio) {
+        alert("Please select a version before adding to cart! ✨");
+        return false; // Return false so buyNow() stops here
+    }
+
+    const versionName = document.querySelector(`label[for="${selectedRadio.id}"]`).innerText;
+
+    let cart = JSON.parse(localStorage.getItem('idleCart')) || [];
+    const existingItem = cart.find(item => item.id === productId && item.version === versionName);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            version: versionName,
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem('idleCart', JSON.stringify(cart));
+    
+    // Only show the alert if we AREN'T redirecting to the cart
+    if (showNotification) {
+        alert(`Success! ${product.name} (${versionName}) has been added to your cart.`);
+    }
+
+    return true; // Return true to indicate success
+}
+
+function quickAdd(productId) {
+    // 1. Find the product data
+    const product = products.find(p => p.id === productId);
+
+    // 2. Get the cart
+    let cart = JSON.parse(localStorage.getItem('idleCart')) || [];
+
+    // 3. Define a default version (The first one in your array)
+    const defaultVersion = product.versions && product.versions.length > 0 
+                           ? product.versions[0] 
+                           : "Standard";
+
+    // 4. Check if already in cart
+    const existingItem = cart.find(item => item.id === productId && item.version === defaultVersion);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            version: defaultVersion,
+            quantity: 1
+        });
+    }
+
+    // 5. Save and Alert
+    localStorage.setItem('idleCart', JSON.stringify(cart));
+    
+    // Optional: Show a nice toast or alert
+    alert(`${product.name} (${defaultVersion}) added to cart!`);
+}
+
+function buyNow() {
+    // Call addToCart but tell it NOT to show the alert (false)
+    const success = addToCart(false); 
+
+    // If it returned true (meaning a version was selected), go to cart
+    if (success) {
+        window.location.href = "cart.html";
+    }
+}
+
+function loadCartPage() {
+    const container = document.getElementById('cart-items-container');
+    if (!container) return;
+
+    let cart = JSON.parse(localStorage.getItem('idleCart')) || [];
+
+    if (cart.length === 0) {
+        container.innerHTML = "<h4>Your cart is empty.</h4>";
+        // Ensure calculateTotal runs with an empty array to reset the summary
+        calculateTotal([]); 
+        return;
+    }
+
+    container.innerHTML = cart.map((item, index) => `
+        <div class="cart-item-row d-flex align-items-center p-3 mb-3 border rounded shadow-sm">
+            <a href="product.html?id=${item.id}" class="cart-img-wrapper me-3">
+                <img src="${item.image}" class="img-fluid rounded" alt="${item.name}">
+            </a>
+
+            <div class="flex-grow-1">
+                <a href="product.html?id=${item.id}" class="text-decoration-none text-dark">
+                    <h5 class="mb-1">${item.name}</h5>
+                </a>
+                <p class="text-muted small mb-0">Version: ${item.version}</p>
+            </div>
+
+            <div class="text-end">
+                <div class="d-flex align-items-center mb-2 justify-content-end">
+                    <button class="btn btn-sm btn-outline-secondary" onclick="updateQty(${index}, -1)">-</button>
+                    <span class="mx-3 fw-bold">${item.quantity}</span>
+                    <button class="btn btn-sm btn-outline-secondary" onclick="updateQty(${index}, 1)">+</button>
+                </div>
+                <p class="fw-bold mb-1">RM${(item.price * item.quantity).toFixed(2)}</p>
+                <button class="btn btn-sm text-danger border-0 p-0" onclick="removeItem(${index})">Delete</button>
+            </div>
+        </div>
+    `).join('');
+
+    calculateTotal(cart);
+}
+
+function updateQty(index, change) {
+    let cart = JSON.parse(localStorage.getItem('idleCart'));
+    cart[index].quantity += change;
+
+    if (cart[index].quantity < 1) cart[index].quantity = 1;
+
+    localStorage.setItem('idleCart', JSON.stringify(cart));
+    loadCartPage(); // Refresh the display
+}
+
+function removeItem(index) {
+    let cart = JSON.parse(localStorage.getItem('idleCart'));
+    cart.splice(index, 1); // Remove the item
+    localStorage.setItem('idleCart', JSON.stringify(cart));
+    loadCartPage(); // Refresh the display
+}
+
+function calculateTotal(cart) {
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const tax = subtotal * 0.06;
+    const shipping = subtotal > 0 ? 10 : 0;
+    const finalTotal = subtotal + tax + shipping;
+
+    document.getElementById('subtotal').innerText = `RM${subtotal.toFixed(2)}`;
+    document.getElementById('tax').innerText = `RM${tax.toFixed(2)}`;
+    document.getElementById('shipping').innerText = `RM${shipping.toFixed(2)}`;
+    document.getElementById('final-total').innerText = `RM${finalTotal.toFixed(2)}`;
+}
+
+// Function to empty the whole cart
+function clearCart() {
+    if (confirm("Are you sure you want to clear your cart?")) {
+        localStorage.removeItem('idleCart');
+        loadCartPage(); // Refresh the screen
+    }
+}
+
+// Function for the Checkout button
+function checkout() {
+    const cart = JSON.parse(localStorage.getItem('idleCart')) || [];
+    if (cart.length === 0) {
+        alert("Your cart is empty! Go buy some G-IDLE merch first. 💅");
+    } else {
+        alert("Thank you for your order! This is where a payment gateway would go.");
+        localStorage.removeItem('idleCart'); // Clear cart after "purchase"
+        window.location.href = "index.html"; // Send them home
+    }
 }

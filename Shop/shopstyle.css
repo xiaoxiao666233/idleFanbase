@@ -6,6 +6,11 @@ body {
     color: black;
 }
 
+.logo {
+    height: 60px;
+    /* bigger logo */
+}
+
 /* Navigation Bar */
 .navbar {
     display: flex;
@@ -184,7 +189,7 @@ body {
 }
 
 .product-card:hover img {
-    transform: scale(1.05); /* Subtle zoom on hover */
+    transform: scale(1.01); /* Subtle zoom on hover */
 }
 
 .product-card {
@@ -304,7 +309,7 @@ body {
    ========================= */
 
 .group-title,
-.category-title {
+#category-title {
     font-size: 48px;
     font-weight: bold;
     margin-bottom: 40px;
@@ -316,7 +321,7 @@ body {
 
 /* Hover trigger */
 .group-title:hover,
-.category-title:hover {
+#category-title:hover {
     animation: neonShift 1.2s forwards;
     cursor: default;
 }
@@ -437,4 +442,88 @@ body {
 /* Optional small lift effect */
 .member-links a:hover {
     transform: translateY(-2px);
+}
+
+/* product html */
+
+/* Product Detail Styles */
+.main-img-container img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.thumbnail-row img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.2s;
+    opacity: 0.6;
+}
+
+.thumbnail-row img:hover, 
+.thumbnail-row img.thumb-active {
+    opacity: 1;
+    border: 2px solid #000;
+}
+
+/* Make sure buttons look clean on mobile */
+@media (max-width: 768px) {
+    .main-img-container img {
+        height: 350px;
+    }
+}
+
+/* Styling for the 'You May Also Like' cards */
+#suggested-products-container .product-card img {
+    height: 200px; /* Slightly smaller than the main product page */
+    object-fit: cover;
+}
+
+#suggested-products-container .product-name {
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Keeps long names on one line */
+}
+
+/* Cart html */
+
+/* Cart Styles */
+.cart-item-row {
+    background-color: #fff;
+    transition: transform 0.2s;
+}
+
+.cart-img-wrapper {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+}
+
+.cart-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Adjust layout for mobile phones */
+@media (max-width: 576px) {
+    .cart-item-row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cart-img-wrapper {
+        margin-bottom: 15px;
+        margin-right: 0 !important;
+    }
+    .cart-item-row .text-end {
+        text-align: center !important;
+        margin-top: 10px;
+    }
+    .justify-content-end {
+        justify-content: center !important;
+    }
 }

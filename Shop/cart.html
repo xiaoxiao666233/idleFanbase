@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IdleShop Cart</title>
+    <link rel="stylesheet" href="../Shop/shopstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- JS Scripts -->
+    <script src="shopinclude.js"></script>
+
+    <!-- Navbar -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Product -->
+    <script src="product.js"></script>
+
+    <div id="nav-placeholder"></div>
+
+    <main class="container my-5 pt-5">
+        <h2 class="mb-4 text-center text-md-start">Shopping Cart</h2>
+    
+        <div class="row g-4">
+            <div class="col-md-8">
+                <div id="cart-items-container">
+                    <p class="text-center">Your cart is loading...</p>
+                </div>
+    
+                <div class="mt-4 d-flex justify-content-between">
+                    <a href="index.html" class="btn btn-outline-dark">&larr; Continue Browsing</a>
+                    <button class="btn btn-danger btn-sm" onclick="clearCart()">Clear Cart</button>
+                </div>
+            </div>
+    
+            <div class="col-md-4">
+                <div class="card p-4 shadow-sm bg-light border-0">
+                    <h4 class="mb-4">Order Summary</h4>
+                    
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Subtotal</span>
+                        <span id="subtotal">RM0.00</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>Tax (6%)</span>
+                        <span id="tax">RM0.00</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between mb-3">
+                        <span>Shipping Fee</span>
+                        <span id="shipping">RM0.00</span>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="d-flex justify-content-between mb-4">
+                        <span class="fw-bold h5">Total</span>
+                        <span class="fw-bold h5 text-primary" id="final-total">RM0.00</span>
+                    </div>
+                    
+                    <button class="btn btn-dark btn-lg w-100 mt-2" onclick="checkout()">Check Out</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="products.js"></script>
+    <script src="main.js"></script>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>

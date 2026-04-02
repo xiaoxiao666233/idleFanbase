@@ -1,34 +1,36 @@
 const products = [
     {
         id: 1,
-        name: "I-dle ",
-        price: 45.00,
-        category: "merch",
+        name: "I-dle Official Lightstick",
+        price: 450.00,
+        category: "albums",
         image: "Photo/Album/IAM_01.jpg",
+        thumbnails: ["Photo/Album/IAM_01.jpg", "Photo/Album/IAM_alt1.jpg", "Photo/Album/IAM_alt2.jpg"],
+        description: "The official (G)I-DLE lightstick Ver.2. Features customizable lighting and Bluetooth connectivity for concert syncing.",
+        versions: ["Standard Edition", "Limited Set"],
         trending: true
     },
     {
         id: 2,
-        name: "I-feel Album",
-        price: 25.00,
+        name: "I-feel Album (Queen Ver.)",
+        price: 95.00,
         category: "albums",
         image: "Photo/Product/item2.jpg",
+        thumbnails: ["Photo/Product/item2.jpg", "Photo/Product/item2_back.jpg"],
+        description: "The 6th Mini Album 'I feel'. This Queen version includes a photobook, lyric paper, and random photocards.",
+        versions: ["Queen Ver.", "Butterfly Ver.", "Cat Ver."],
         trending: true
     },
     {
         id: 3,
-        name: "World Tour T-Shirt",
-        price: 35.00,
-        category: "merch",
-        image: "Photo/Product/item3.jpg",
+        name: "TEST",
+        price: 111111.00,
+        category: "albums",
+        image: "Photo/Product/item2.jpg",
+        thumbnails: ["Photo/Product/item2.jpg", "Photo/Product/item2_back.jpg"],
+        description: "The 6th Mini Album 'I feel'. This Queen version includes a photobook, lyric paper, and random photocards.",
+        versions: ["Queen Ver."],
         trending: true
-    },
-    {
-        id: 4,
-        name: "G-Idle Photocard Set",
-        price: 15.00,
-        category: "accessories",
-        image: "Photo/Product/item4.jpg",
-        trending: false
     }
+    
 ];
