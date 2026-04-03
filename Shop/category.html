@@ -20,13 +20,27 @@
     <script src="product.js"></script>
 
     <section class="group-hero fade-slide-bottom">
-        <section class="container pt-4 mb-5"> 
+        <section class="container pt-4 mb-5 text-center"> 
             
-            <h2 class="text-center mt-0 mb-5 hover-title" id="category-title">Category</h2>
-            
-            <div class="row g-4" id="category-container">
+            <h2 class="hover-title mb-3" id="category-title">Category</h2>
+    
+            <div class="floating-sort-menu">
+                <div class="d-flex flex-column gap-2">
+                    <button class="btn btn-dark shadow-lg" id="sort-date-btn" onclick="toggleSort('date')">
+                         Newest ↓
+                    </button>
+                    <button class="btn btn-dark shadow-lg" id="sort-price-btn" onclick="toggleSort('price')">
+                         Price ↓
+                    </button>
+                    <button class="btn btn-danger shadow-lg" id="clear-sort-btn" onclick="clearSort()">
+                         Clear
+                    </button>
                 </div>
-        </section>
+            </div>
+            
+            <div class="row g-4 text-start" id="category-container">
+                </div>
+        </section> 
     </section>
 
     <!-- Footer -->

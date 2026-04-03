@@ -60,65 +60,127 @@ function loadTrending() {
     `).join('');
 }
 
-function redirectToProduct(id) {
-    alert("Please select a version before adding to cart!");
-    window.location.href = `product.html?id=${id}`;
-}
+// --- 1. GLOBAL SCOPE FUNCTIONS (Attached to window) ---
 
-function loadCategoryPage() {
-    const container = document.getElementById('category-container');
-    const titleElement = document.getElementById('category-title');
+window.redirectToProduct = function(id) {
+    console.log("Redirecting to ID:", id); // Check your console (F12) to see if this fires
 
-    // 1. Get the category name from the URL (e.g., category.html?type=albums)
-    const urlParams = new URLSearchParams(window.location.search);
-    const categoryType = urlParams.get('type'); // This captures "albums"
-
-    if (!categoryType) {
-        container.innerHTML = "<p>Please select a category.</p>";
+    if (typeof products === 'undefined') {
+        alert("Error: Product data not loaded.");
         return;
     }
-    // --- NEW LOGIC START ---
-    // 1. Capitalize the first letter (e.g., "merch" -> "Merch")
+
+    const product = products.find(p => p.id == id);
+
+    if (product) {
+        alert(`Note: Please select your version for ${product.name}!`);
+    }
+    
+    window.location.href = `product.html?id=${id}`;
+};
+
+window.toggleSort = function(type) {
+    loadCategoryPage(type);
+};
+
+window.clearSort = function() {
+    loadCategoryPage('clear');
+};
+
+// --- 2. SORTING STATE ---
+let sortDirections = {
+    date: true,
+    price: true
+};
+
+// --- 3. MAIN LOAD FUNCTION ---
+function loadCategoryPage(sortBy = 'default') {
+    const container = document.getElementById('category-container');
+    const titleElement = document.getElementById('category-title');
+  if (!container) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryType = urlParams.get('type');
+
+    if (!categoryType) {
+        container.innerHTML = "<p class='text-center'>Please select a category.</p>";
+        return;
+    }
+    // --- 2. TITLE LOGIC (Put this here so it ALWAYS runs) ---
     const formattedTitle = categoryType.charAt(0).toUpperCase() + categoryType.slice(1);
     
-    // 2. Change the browser tab title
+    // Update Browser Tab Title
     document.title = `${formattedTitle} - IdleShop`;
     
-    // 3. Change the <h2> heading on the page
-    titleElement.innerText = formattedTitle;
+    // Update the <h2> on the page
+    if (titleElement) {
+        titleElement.innerText = formattedTitle;
+    } else {
+        console.error("Could not find element with id 'category-title'");
+    }
 
-    // 3. Filter products by that category
-    const filteredProducts = products.filter(item => item.category === categoryType);
+    // Filter and Sort
+    let filteredProducts = products.filter(item => item.category === categoryType);
 
-    // 4. Inject into HTML
-    if (filteredProducts.length > 0) {
-        container.innerHTML = filteredProducts.map(product => `
-            <div class="col-md-4">
-                <div class="card h-100 product-card">
-                    <a href="product.html?id=${product.id}">
-                        <img src="${product.image}" class="card-img-top" alt="${product.name}">
-                    </a>
-                    
-                    <div class="card-body text-center">
-                        <a href="product.html?id=${product.id}" class="text-decoration-none product-name-color">
-                            <h5 class="product-name">${product.name}</h5>
-                        </a>
-                        
-                        <p class="product-price text-muted">RM${product.price.toFixed(2)}</p>
-                        
-                        <div class="d-grid gap-2">
-                        <button class="btn btn-outline-dark" onclick="redirectToProduct(${product.id})">Add to Cart</button>
+    if (sortBy === 'date') {
+        sortDirections.date = !sortDirections.date;
+        filteredProducts.sort((a, b) => sortDirections.date ? b.id - a.id : a.id - b.id);
+        const btn = document.getElementById('sort-date-btn');
+        if(btn) btn.innerText = sortDirections.date ? "Newest ↓" : "Oldest ↑";
+    } 
+    else if (sortBy === 'price') {
+        sortDirections.price = !sortDirections.price;
+        filteredProducts.sort((a, b) => sortDirections.price ? b.price - a.price : a.price - b.price);
+        const btn = document.getElementById('sort-price-btn');
+        if(btn) btn.innerText = sortDirections.price ? "Price: High ↓" : "Price: Low ↑";
+    }
+    else if (sortBy === 'clear') {
+        filteredProducts.sort((a, b) => a.id - b.id);
+        sortDirections.date = true;
+        sortDirections.price = true;
+        const dBtn = document.getElementById('sort-date-btn');
+        const pBtn = document.getElementById('sort-price-btn');
+        if(dBtn) dBtn.innerText = "Newest ↓";
+        if(pBtn) pBtn.innerText = "Price ↓";
+    }
 
-                        <button class="btn btn-dark" onclick="redirectToProduct(${product.id})">Buy Now</button>
-                        </div>
+    // Render
+    container.innerHTML = filteredProducts.map(product => `
+        <div class="col-md-4">
+            <div class="card h-100 product-card">
+                <a href="product.html?id=${product.id}">
+                    <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="product-name">${product.name}</h5>
+                    <p class="product-price text-muted">RM${product.price.toFixed(2)}</p>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-dark" onclick="redirectToProduct('${product.id}')">Add to Cart</button>
+                        <button class="btn btn-dark" onclick="redirectToProduct('${product.id}')">Buy Now</button>
                     </div>
                 </div>
             </div>
-        `).join('');
-    } else {
-        container.innerHTML = "<p class='text-center'>No products found in this category.</p>";
-    }
+        </div>
+    `).join('');
 }
+
+// Initial Call
+document.addEventListener('DOMContentLoaded', () => loadCategoryPage());
+
+// 3. HELPER FUNCTIONS (These link your HTML buttons to the code above)
+function toggleSort(type) {
+    loadCategoryPage(type);
+}
+
+function clearSort() {
+    loadCategoryPage('clear');
+}
+
+function redirectToProduct(id) {
+    window.location.href = `product.html?id=${id}`;
+}
+
+
 
 function changeImg(src) {
     document.getElementById('main-product-img').src = src;

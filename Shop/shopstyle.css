@@ -461,7 +461,7 @@ body {
     font-size: 48px;
     font-weight: bold;
     margin-top: 0;        /* Remove default top margin */
-    margin-bottom: 30px;  /* Space between title and products */
+    margin-bottom: 50px;  /* Space between title and products */
     padding-top: 0;       /* Ensure no padding is pushing it down */
     letter-spacing: 3px;
     color: #222;
@@ -675,5 +675,81 @@ body {
     }
     .justify-content-end {
         justify-content: center !important;
+    }
+}
+
+.sort-controls .btn {
+    border-radius: 20px; /* Makes them pill-shaped */
+    padding: 5px 15px;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+#clear-sort-btn {
+    border-radius: 20px;
+}
+
+/* Adds a nice spacing between the title and the sort row */
+#category-title {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+#clear-sort-btn {
+    background-color: #ff4d4d; /* Soft red */
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    padding: 6px 12px;
+    transition: 0.3s ease;
+}
+
+#clear-sort-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    transform: scale(1.05);
+}
+
+/* Add a "Selected" look to active sort buttons */
+.sort-active {
+    background-color: #7b2cbf !important;
+    color: white !important;
+    border-color: #7b2cbf !important;
+}
+
+.floating-sort-menu {
+    position: fixed;
+    bottom: 30px;      /* Distance from bottom */
+    right: 30px;       /* Distance from right */
+    z-index: 9999;     /* Stays on top of everything */
+}
+
+.floating-sort-menu .btn {
+    border-radius: 10px;       /* Rounded pill shape */
+    padding: 12px 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap;       /* Prevents text from wrapping */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Hover Effect: Glow and Slide */
+.floating-sort-menu .btn:hover {
+    transform: translateX(-10px) scale(1.05); /* Slides left slightly on hover */
+    background-color: #7b2cbf !important;    /* Your signature purple */
+    box-shadow: 0 0 20px rgba(123, 44, 191, 0.6);
+}
+
+/* Adjust for Mobile so it doesn't cover content */
+@media (max-width: 576px) {
+    .floating-sort-menu {
+        bottom: 20px;
+        right: 20px;
+    }
+    .floating-sort-menu .btn {
+        padding: 8px 15px;
+        font-size: 0.75rem;
     }
 }
