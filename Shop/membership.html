@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Shop/shopstyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+<body>
+    <!-- JS Scripts -->
+    <script src="shopinclude.js"></script>
+
+    <!-- Navbar -->
+    <div id="nav-placeholder"></div>
+
+    <!-- Product -->
+    <script src="product.js"></script>
+
+    <section class="membership-section pt-5 mt-5 fade-slide-bottom">
+        <div class="container pt-lg-5"> <h2 class="text-center mb-5 hover-title">Official Membership</h2>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="card h-100 membership-card text-center shadow-sm">
+                        <div class="card-header bg-dark text-white py-3">
+                            <h4 class="my-0">NEVERLAND Basic</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">RM50 <small class="text-muted">/ year</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Digital Membership Card</li>
+                                <li>Exclusive Badge</li>
+                                <li>Priority Ticket Access (Concert)</li>
+                                
+                            </ul>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-dark" onclick="addToCartDirect('mem-01')">Add to Cart</button>
+
+                                <button class="btn btn-dark" onclick="buyNowDirect('mem-01')">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4">
+                    <div class="card h-100 membership-card text-center shadow border-purple">
+                        <div class="card-header bg-purple text-white py-3">
+                            <h4 class="my-0">NEVERLAND Pro</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">RM120 <small class="text-muted">/ year</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Includes Benefits from NEVERLAND BASIC</li>
+                                <li>Exclusive Photocards</li>
+                                <li>Welcome Kit (Physical)</li>
+                                <li>Private Content Access</li>
+                            </ul>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-dark" onclick="addToCartDirect('mem-02')">Add to Cart</button>
+                                <button class="btn btn-dark" onclick="buyNowDirect('mem-02')">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-md-4">
+                    <div class="card h-100 membership-card text-center shadow-sm">
+                        <div class="card-header bg-dark text-white py-3">
+                            <h4 class="my-0">NEVERLAND VIP</h4>
+                        </div>
+                        <div class="card-body">
+                            <h1 class="card-title pricing-card-title">RM250 <small class="text-muted">/ year</small></h1>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Includes Benefits from NEVERLAND BASIC & PRO</li>
+                                <li>Limited Photocards</li>
+                                <li>Signed Merchandise</li>
+                                <li>Hi-Touch Event Priority</li>
+                            </ul>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-dark" onclick="addToCartDirect('mem-03')">Add to Cart</button>
+                                <button class="btn btn-dark" onclick="buyNowDirect('mem-03')">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+</body>
+</html>

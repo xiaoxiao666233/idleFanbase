@@ -60,23 +60,50 @@ function loadTrending() {
     `).join('');
 }
 
-// --- 1. GLOBAL SCOPE FUNCTIONS (Attached to window) ---
-
-window.redirectToProduct = function(id) {
-    console.log("Redirecting to ID:", id); // Check your console (F12) to see if this fires
+// --- 1. DIRECT ADD TO CART (Matches your 'idleCart' system) ---
+window.addToCartDirect = function(id) {
+    console.log("Attempting to add Membership ID:", id);
 
     if (typeof products === 'undefined') {
-        alert("Error: Product data not loaded.");
+        alert("Error: products.js not loaded!");
         return;
     }
 
-    const product = products.find(p => p.id == id);
-
-    if (product) {
-        alert(`Note: Please select your version for ${product.name}!`);
-    }
+    const product = products.find(p => String(p.id).trim() === String(id).trim());
     
-    window.location.href = `product.html?id=${id}`;
+    if (!product) {
+        alert("Membership not found in products.js!");
+        return;
+    }
+
+    // IMPORTANT: Changed 'cart' to 'idleCart' to match your other functions!
+    let cart = JSON.parse(localStorage.getItem('idleCart')) || [];
+
+    // Check if this membership is already in cart
+    const existingItem = cart.find(item => item.id === product.id);
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            version: "Official Membership", // Default version
+            quantity: 1
+        });
+    }
+
+    localStorage.setItem('idleCart', JSON.stringify(cart));
+    alert(`${product.name} added to cart!`);
+};
+
+// --- 2. DIRECT BUY NOW (Goes straight to cart.html) ---
+window.buyNowDirect = function(id) {
+    // We reuse the function above to save code!
+    addToCartDirect(id);
+    window.location.href = 'cart.html';
 };
 
 window.toggleSort = function(type) {
@@ -166,19 +193,6 @@ function loadCategoryPage(sortBy = 'default') {
 
 // Initial Call
 document.addEventListener('DOMContentLoaded', () => loadCategoryPage());
-
-// 3. HELPER FUNCTIONS (These link your HTML buttons to the code above)
-function toggleSort(type) {
-    loadCategoryPage(type);
-}
-
-function clearSort() {
-    loadCategoryPage('clear');
-}
-
-function redirectToProduct(id) {
-    window.location.href = `product.html?id=${id}`;
-}
 
 
 
@@ -360,30 +374,38 @@ function loadCartPage() {
         return;
     }
 
-    container.innerHTML = cart.map((item, index) => `
-        <div class="cart-item-row d-flex align-items-center p-3 mb-3 border rounded shadow-sm">
-            <a href="product.html?id=${item.id}" class="cart-img-wrapper me-3">
-                <img src="${item.image}" class="img-fluid rounded" alt="${item.name}">
-            </a>
-
-            <div class="flex-grow-1">
-                <a href="product.html?id=${item.id}" class="text-decoration-none product-name-color">
-                    <h5 class="mb-1">${item.name}</h5>
+    container.innerHTML = cart.map((item, index) => {
+        // DETERMINE THE LINK: 
+        // If the ID starts with 'mem', go to membership.html. Otherwise, go to product.html.
+        const targetPage = String(item.id).startsWith('mem') 
+            ? `membership.html` 
+            : `product.html?id=${item.id}`;
+    
+        return `
+            <div class="cart-item-row d-flex align-items-center p-3 mb-3 border rounded shadow-sm">
+                <a href="${targetPage}" class="cart-img-wrapper me-3">
+                    <img src="${item.image}" class="img-fluid rounded" alt="${item.name}">
                 </a>
-                <p class="text-muted small mb-0">Version: ${item.version}</p>
-            </div>
-
-            <div class="text-end">
-                <div class="d-flex align-items-center mb-2 justify-content-end">
-                    <button class="btn btn-sm btn-outline-secondary" onclick="updateQty(${index}, -1)">-</button>
-                    <span class="mx-3 fw-bold">${item.quantity}</span>
-                    <button class="btn btn-sm btn-outline-secondary" onclick="updateQty(${index}, 1)">+</button>
+    
+                <div class="flex-grow-1">
+                    <a href="${targetPage}" class="text-decoration-none product-name-color">
+                        <h5 class="mb-1">${item.name}</h5>
+                    </a>
+                    <p class="text-muted small mb-0">Version: ${item.version}</p>
                 </div>
-                <p class="fw-bold mb-1">RM${(item.price * item.quantity).toFixed(2)}</p>
-                <button class="btn btn-sm text-danger border-0 p-0" onclick="removeItem(${index})">Delete</button>
+    
+                <div class="text-end">
+                    <div class="d-flex align-items-center mb-2 justify-content-end">
+                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQty(${index}, -1)">-</button>
+                        <span class="mx-3 fw-bold">${item.quantity}</span>
+                        <button class="btn btn-sm btn-outline-secondary" onclick="updateQty(${index}, 1)">+</button>
+                    </div>
+                    <p class="fw-bold mb-1">RM${(item.price * item.quantity).toFixed(2)}</p>
+                    <button class="btn btn-sm text-danger border-0 p-0" onclick="removeItem(${index})">Delete</button>
+                </div>
             </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
     calculateTotal(cart);
 }

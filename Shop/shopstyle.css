@@ -753,3 +753,50 @@ body {
         font-size: 0.75rem;
     }
 }
+
+/* member ship */
+.membership-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.membership-card:hover {
+    transform: translateY(-10px);
+}
+
+.bg-purple {
+    background-color: #7b2cbf !important; /* Your theme purple */
+}
+
+.border-purple {
+    border: 2px solid #7b2cbf !important;
+}
+
+.pricing-card-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.membership-card ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid #f8f9fa;
+    color: #555;
+}
+
+.membership-card ul li:last-child {
+    border-bottom: none;
+}
+
+.membership-section {
+    /* Adjust '100px' to match the actual height of your navbar */
+    padding-top: 100px !important; 
+}
+
+/* If you have a very tall navbar on mobile */
+@media (max-width: 768px) {
+    .membership-section {
+        padding-top: 80px !important;
+    }
+}
