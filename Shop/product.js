@@ -8,7 +8,7 @@ const products = [
         thumbnails: ["Photo/Lightstick/VER1_01.jpg", "Photo/Lightstick/VER1_02.jpg"],
         description: "The official (G)I-DLE lightstick Ver.2. Features customizable lighting and Bluetooth connectivity for concert syncing.",
         versions: ["STANDARD Ver."],
-        trending: true
+        trending: false
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const products = [
         thumbnails: ["Photo/Lightstick/VER2_01.jpg", "Photo/Lightstick/VER2_02.jpg", "Photo/Lightstick/VER2_03.jpg"],
         description: "The 6th Mini Album 'I feel'. This Queen version includes a photobook, lyric paper, and random photocards.",
         versions: ["STANDARD Ver."],
-        trending: true
+        trending: false
     },
     {
         id: 3,
@@ -261,7 +261,7 @@ const products = [
         thumbnails: ["Photo/Album/WEARE_01.jpg", "Photo/Album/WEARE_02.jpg", "Photo/Album/WEARE_03.jpg"],
         description: "The 6th Mini Album 'I feel'. This Queen version includes a photobook, lyric paper, and random photocards.",
         versions: ["G Ver.", "I Ver.", "WE Ver."],
-        trending: false
+        trending: true
     },
     {
         id: 25,
@@ -316,7 +316,7 @@ const products = [
         thumbnails: ["Photo/CSOON.jpg"],
         description: "The 6th Mini Album 'I feel'. This Queen version includes a photobook, lyric paper, and random photocards.",
         versions: ["PRE-ORDER"],
-        trending: false
+        trending: true
     },
     {
         id: 30,

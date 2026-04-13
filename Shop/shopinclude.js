@@ -50,9 +50,9 @@ function loadTrending() {
                     
                     
                     <div class="d-grid gap-2">
-                    <button class="btn btn-outline-dark" onclick="redirectToProduct(${product.id})">Add to Cart</button>
+                    <button class="btn btn-outline-dark" onclick="redirectToProduct('${product.id}')">Add to Cart</button>
 
-                    <button class="btn btn-dark" onclick="redirectToProduct(${product.id})">Buy Now</button>
+                    <button class="btn btn-dark" onclick="redirectToProduct('${product.id}')">Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -112,6 +112,26 @@ window.toggleSort = function(type) {
 
 window.clearSort = function() {
     loadCategoryPage('clear');
+};
+
+window.redirectToProduct = function(id) {
+    // 1. Find the product in your products.js array
+    const product = products.find(p => String(p.id) === String(id));
+
+    if (product) {
+        // 2. If it's a membership, go to membership page
+        if (product.category === 'membership') {
+            window.location.href = 'membership.html';
+        } 
+        // 3. If it's a normal product, show the alert THEN go to product page
+        else {
+            alert(`Note: Please select your preferred version for ${product.name} on the next page!`);
+            window.location.href = `product.html?id=${id}`;
+        }
+    } else {
+        // Fallback if ID isn't found
+        window.location.href = `product.html?id=${id}`;
+    }
 };
 
 // --- 2. SORTING STATE ---
@@ -226,8 +246,8 @@ function loadSuggestedProducts() {
                         <h6 class="product-name mb-1 text-decoration-none product-name-color">${product.name}</h6>
                         <p class="product-price text-muted small">RM${product.price.toFixed(2)}</p>
                         <div class="d-grid gap-2">
-                        <button class="btn btn-outline-dark" onclick="redirectToProduct(${product.id})">Add to Cart</button>
-                        <button class="btn btn-dark" onclick="redirectToProduct(${product.id})">Buy Now</button>
+                        <button class="btn btn-outline-dark" onclick="redirectToProduct('${product.id}')">Add to Cart</button>
+                        <button class="btn btn-dark" onclick="redirectToProduct('${product.id}')">Buy Now</button>
                         
                         </div>
                     </div>
