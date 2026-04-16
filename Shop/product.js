@@ -309,7 +309,7 @@ const products = [
     },
     {
         id: 29,
-        name: "NEW ALBUM [SECOND QUARTER OF 2026] - I-DLE",
+        name: "NEW ALBUM [JULY OF 2026] - I-DLE",
         price: 90.00,
         category: "preorder",
         image: "Photo/CSOON.jpg",
