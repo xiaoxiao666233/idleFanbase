@@ -320,13 +320,13 @@ const products = [
     },
     {
         id: 30,
-        name: ".",
-        price: 90.00,
+        name: "MINNIE",
+        price: 10.00,
         category: "photocards",
-        image: "Photo/CSOON.jpg",
-        thumbnails: ["Photo/CSOON.jpg"],
-        description: "The 6th Mini Album 'I feel'. This Queen version includes a photobook, lyric paper, and random photocards.",
-        versions: ["PRE-ORDER"],
+        image: "Photo/Photocard/MINNIE_01.jpg",
+        thumbnails: ["Photo/Photocard/MINNIE_01.jpg"],
+        description: "Photocard of Minnie from WE ARE Album.",
+        versions: ["STANDARD Ver."],
         trending: false
     },
     {
@@ -349,6 +349,127 @@ const products = [
         price: 250.00,
         category: "membership",
         image: "Photo/NEVERLAND.jpg"
+    },
+    {
+        id: 31,
+        name: "MINNIE",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/MINNIE_02.jpg",
+        thumbnails: ["Photo/Photocard/MINNIE_02.jpg"],
+        description: "Photocard of Minnie from I SWAY Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 32,
+        name: "MIYEON",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/MIYEON_01.jpg",
+        thumbnails: ["Photo/Photocard/MIYEON_01.jpg"],
+        description: "Photocard of Miyeon from WE ARE Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 33,
+        name: "MIYEON",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/MIYEON_02.jpg",
+        thumbnails: ["Photo/Photocard/MIYEON_02.jpg"],
+        description: "Photocard of Miyeon from I SWAY Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 34,
+        name: "SOYEON",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/SOYEON_01.jpg",
+        thumbnails: ["Photo/Photocard/SOYEON_01.jpg"],
+        description: "Photocard of Soyeon from I NEVER DIE Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 35,
+        name: "SOYEON",
+        price: 90.00,
+        category: "photocards",
+        image: "Photo/Photocard/SOYEON_02.jpg",
+        thumbnails: ["Photo/Photocard/SOYEON_02.jpg"],
+        description: "Photocard of Soyeon from I FEEL Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 36,
+        name: "YUQI",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/YUQI_01.jpg",
+        thumbnails: ["Photo/Photocard/YUQI_01.jpg"],
+        description: "Photocard of Yuqi from YUQ1 Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 37,
+        name: "YUQI",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/YUQI_02.jpg",
+        thumbnails: ["Photo/Photocard/YUQI_02.jpg"],
+        description: "Photocard of Yuqi from WE ARE Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 38,
+        name: "SHUHUA",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/SHUHUA_01.jpg",
+        thumbnails: ["Photo/Photocard/SHUHUA_01.jpg"],
+        description: "Photocard of Shuhua from WE ARE Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 39,
+        name: "SHUHUA",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/SHUHUA_02.jpg",
+        thumbnails: ["Photo/Photocard/SHUHUA_02.jpg"],
+        description: "Photocard of Shuhua from WE ARE Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 40,
+        name: "SOOJIN",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/SOOJIN_01.jpg",
+        thumbnails: ["Photo/Photocard/SOOJIN_01.jpg"],
+        description: "Photocard of Soojin from BADITUDE Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
+    },
+    {
+        id: 41,
+        name: "SOOJIN",
+        price: 10.00,
+        category: "photocards",
+        image: "Photo/Photocard/SOOJIN_02.jpg",
+        thumbnails: ["Photo/Photocard/SOOJIN_02.jpg"],
+        description: "Photocard of Soojin from AGASSY Album.",
+        versions: ["STANDARD Ver."],
+        trending: false
     }
     
     
